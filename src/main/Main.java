@@ -37,8 +37,6 @@ public class Main {
 		account.withdraw(ammount);
 		list.getList().set(index, account);
 		System.out.println("New Balance: " + account.getBalance());
-		
-		// System.out.println(list.toString());  Checking all accounts
 
 		ler.close();
 	}

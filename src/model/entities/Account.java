@@ -19,14 +19,6 @@ public class Account {
 		this.withdrawLimit = withdrawLimit;
 	}
 
-	public boolean equals(Object o) {
-		if (o instanceof Account) {
-			Account p = (Account) o;
-			return this.number == p.getNumber();
-		} else
-			return false;
-	}
-
 	public void deposit(Double value) {
 		this.balance += value;
 	}
