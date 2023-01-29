@@ -32,15 +32,8 @@ public class Account {
 	}
 
 	public void withdraw(Double value) {
-		if (value <= this.withdrawLimit) {
-			if (value < this.balance) {
-				this.balance -= value;
-			} else {
-				throw new AccountException("The ammount exceeds the ammount the account has.");
-			}
-		} else {
-			throw new AccountException("The ammount exceeds withdraw limit.");
-		}
+		validateWithdraw(value);
+		this.balance -= value;
 
 	}
 
@@ -66,6 +59,19 @@ public class Account {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+	
+	public double getWithdrawLimit() {
+		return withdrawLimit;
+	}
+	
+	private void validateWithdraw(double amount) {
+		if (amount > getWithdrawLimit()) {
+			throw new AccountException("Withdraw Error: The ammount exceeds the withdraw limmit.");
+		} 
+		if (amount > getBalance()) {
+			throw new AccountException("Withdraw Error: The ammount exceeds the balance.");
+		}
 	}
 
 	@Override

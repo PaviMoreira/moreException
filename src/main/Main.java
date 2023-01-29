@@ -26,15 +26,16 @@ public class Main {
 		} catch (InputMismatchException e) {
 			System.out.println("Wrong input, accounts can only be a number. Please insert a number.");
 		}
+		
 		try {
 			System.out.println("Enter ammount for withdraw: ");
 			ammount = ler.nextDouble();
 		} catch (InputMismatchException e) {
 			System.out.println("Wrong input, ammount needs to be in numbers.");
 		}
+		
 		account.withdraw(ammount);
 		list.getList().set(index, account);
-		
 		System.out.println("New Balance: " + account.getBalance());
 		
 		// System.out.println(list.toString());  Checking all accounts
